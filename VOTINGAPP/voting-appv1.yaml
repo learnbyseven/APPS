@@ -1,0 +1,33 @@
+## Voting app stack development 
+
+httpd:
+  image: php/7.1-apache
+  autoredeploy: true
+  autodestroy: always
+  labels:
+  com.example.description: "voting application webserver"
+  com.example.department: "devops"
+  volumes:
+    - /apachevolume:/var/www/html/ 
+  target_num_containers: 1
+  restart: always
+  tags:
+    - dev
+  links:
+    - mysql
+  ports:
+    - "80:80"
+  
+mysql:
+  image: maridb
+  autoredeploy: true
+  autodestroy: always
+  labels:
+  com.example.description: "voting application database server"
+  com.example.department: "devops"
+  target_num_containers: 1
+  restart: always
+  tags:
+    - dev
+  ports:
+    - "3306:3306"

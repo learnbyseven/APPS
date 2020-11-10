@@ -1,0 +1,49 @@
+## Voting app stack development Version 2  
+version: '3'
+services:
+  mysqlv2:
+    image: votedb:v2
+    deploy:
+      replicas: 1
+      restart_policy:
+         condition: on-failure
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 200M
+        reservations:
+          cpus: '0.25'
+          memory: 100M
+    container_name: mysqlv2
+    labels:
+     com.example.description: "voting application database server"
+     com.example.department: "devops"
+    volumes:
+      - /mysqlvol2:/var/lib/mysql
+    ports:
+      - "3302:3306"
+
+  webv2:
+    image: voteweb:v2
+    deploy:
+      replicas: 1
+      restart_policy:
+         condition: on-failure
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 100M
+        reservations:
+          cpus: '0.25'
+          memory: 50M
+    container_name: webv2
+    depends_on:
+      - mysqlv2
+    labels:
+     com.example.description: "voting application webserver"
+     com.example.department: "devops"
+    links:
+      - mysqlv2:mysqlv2
+    ports:
+      - "8082:80"
+
