@@ -1,0 +1,22 @@
+{
+   "SUZUKI" : {
+      "name" : "Suzuki-Shogan",
+      "Model" : "Red",
+      "Make" : "2000",
+      "id": 1
+   },
+   
+   "HONDA" : {
+      "name" : "Honda-Splendour",
+      "Model" : "4Stroke",
+      "Make" : "2001",
+      "id": 2
+   },
+   
+   "KAWASAKI" : {
+      "name" : "KW",
+      "Model" : "KB-125",
+      "Make" : "2003",
+      "id": 3
+   }
+}

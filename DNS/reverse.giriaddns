@@ -1,0 +1,27 @@
+$TTL 86400
+@   IN  SOA     workstation.giriaddns.net. root.giriaddns.net. (
+        2011071001  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+@      IN  NS          workstation.giriaddns.net.
+@      IN  PTR         giriaddns.net.
+workstation IN	A	192.168.124.100
+master1 IN	A	192.168.124.101
+master2 IN	A	192.168.124.102
+master3 IN	A	192.168.124.103
+node1 IN	A	192.168.124.111
+node2 IN	A	192.168.124.112
+node3 IN	A	192.168.124.113
+labu1	IN	A	192.168.124.92
+
+100	IN	PTR	workstation.giriaddns.net.
+101	IN	PTR	master1.giriaddns.net.
+102	IN	PTR	master2.giriaddns.net.
+103	IN	PTR	master3.giriaddns.net.
+111	IN	PTR	node1.giriaddns.net.
+112	IN	PTR	node2.giriaddns.net.
+113	IN	PTR	node3.giriaddns.net.
+92	IN	PTR	labu1.giriaddns.net.
